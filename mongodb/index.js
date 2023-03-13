@@ -1,20 +1,20 @@
 // CONFIGURAÇÃO INICIAL
+import express, { urlencoded, json } from 'express'
+import personRoutes from './routes/personRoutes'
+import { connect } from 'mongoose'
 require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
 const app = express()
 
 // FORMA DE LER JSON // MIDDLEWARES
 app.use(
-  express.urlencoded({
+  urlencoded({
     extended: true
   })
 )
 
-app.use(express.json())
+app.use(json())
 
 // ROTAS DA API
-const personRoutes = require('./routes/personRoutes')
 app.use('/person', personRoutes)
 
 // ROTA INICIAL / ENDPOINT
@@ -27,8 +27,7 @@ app.get('/', (req, res) => {
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
-mongoose
-  .connect(
+connect(
     `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.abpetub.mongodb.net/bancodaapi?retryWrites=true&w=majority`
   )
   .then(() => {
