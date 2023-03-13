@@ -2,7 +2,7 @@
 
 ## API
 
-Instalar dependências
+Instalar dependência
 
 - [x] Iniciar projeto `npm init -y`
 
