@@ -12,4 +12,4 @@ Exemplifica caso de uso com MongoDB
 
 ### diretório node
 
-Exemplifica caso de uso com dados estáticos.
+Exemplifica caso de uso com persistência de dados usando MySQL.
